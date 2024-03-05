@@ -1,5 +1,7 @@
 ﻿
 using HtmlToPdfGenerator;
+using HtmlToPdfGenerator.DataSource;
 
-var html = HtmlStrings.GetInvoiceHtmlString();
+var invoice = InvoiceData.GetInvoices();
+var html = HtmlStrings.GetInvoiceHtmlString(invoice);
 InvoicePdfGenerator.GenerateInvoice(html);

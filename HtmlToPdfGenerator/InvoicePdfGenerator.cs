@@ -17,13 +17,14 @@ namespace HtmlToPdfGenerator
 
             pdfDocument = htmlConverter.Convert(html, baseurl: "");
 
-            if(File.Exists("HTML-to-PDF.pdf"))
-                File.Delete("HTML-to-PDF.pdf");
-            FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+            var filePath = "../../../sample.pdf";
+
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+            FileStream fileStream = new FileStream(filePath, FileMode.CreateNew, FileAccess.ReadWrite);
 
             pdfDocument.Save(fileStream);
             pdfDocument.Close(true);
-
         }
     }
 }
